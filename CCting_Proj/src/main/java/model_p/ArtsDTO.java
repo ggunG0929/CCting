@@ -4,12 +4,21 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ArtsDTO {
-	String name, agency, arts, content, awards, photo1, photo2, bfile1, bfile2;
+	String pw, name, agency, arts, content, awards, photo1, photo2, bfile1, bfile2;
 	Date edit_date;
 	int id, age, height, weight;
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd(E) hh:mm");
 
+
+	public String getPw() {
+		return pw;
+	}
+	
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -63,6 +72,12 @@ public class ArtsDTO {
 	}
 
 	public String getPhoto1() {
+// 파일이 없거나 공백이거나 null이라는 문자라면 공백으로 통일시킴
+		if(photo1==null
+				|| photo1.trim().equals("")
+				|| photo1.trim().equals("null")) {
+			photo1 = "";
+		}
 		return photo1;
 	}
 
@@ -71,6 +86,12 @@ public class ArtsDTO {
 	}
 
 	public String getPhoto2() {
+// 파일이 없거나 공백이거나 null이라는 문자라면 공백으로 통일시킴
+		if(photo2==null
+				|| photo2.trim().equals("")
+				|| photo2.trim().equals("null")) {
+			photo2 = "";
+		}
 		return photo2;
 	}
 
@@ -79,6 +100,12 @@ public class ArtsDTO {
 	}
 
 	public String getBfile1() {
+// 파일이 없거나 공백이거나 null이라는 문자라면 공백으로 통일시킴
+		if(bfile1==null
+				|| bfile1.trim().equals("")
+				|| bfile1.trim().equals("null")) {
+			bfile1 = "";
+		}
 		return bfile1;
 	}
 
@@ -87,6 +114,12 @@ public class ArtsDTO {
 	}
 
 	public String getBfile2() {
+// 파일이 없거나 공백이거나 null이라는 문자라면 공백으로 통일시킴
+		if(bfile2==null
+				|| bfile2.trim().equals("")
+				|| bfile2.trim().equals("null")) {
+			bfile2 = "";
+		}
 		return bfile2;
 	}
 
@@ -140,7 +173,7 @@ public class ArtsDTO {
 
 	@Override
 	public String toString() {
-		return "ArtsDTO [name=" + name + ", agency=" + agency + ", arts=" + arts + ", content=" + content + ", awards="
+		return "ArtsDTO [pw=" + pw + ", name=" + name + ", agency=" + agency + ", arts=" + arts + ", content=" + content + ", awards="
 				+ awards + ", photo1=" + photo1 + ", photo2=" + photo2 + ", bfile1=" + bfile1 + ", bfile2=" + bfile2
 				+ ", edit_date=" + edit_date + ", id=" + id + ", age=" + age + ", height=" + height + ", weight="
 				+ weight + "]";

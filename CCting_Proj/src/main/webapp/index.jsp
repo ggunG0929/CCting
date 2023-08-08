@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1><a href="/arts/">배우게시판</a></h1>
+<h1><a href="/arts/AList">배우게시판</a></h1>
 </body>
 </html>

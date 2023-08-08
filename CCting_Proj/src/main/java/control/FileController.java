@@ -21,7 +21,7 @@ public class FileController extends HttpServlet {
 				);
 		
 		try {
-			ArtsService service = (ArtsService)Class.forName("ser_p."+serviceStr).newInstance();
+			BoardService service = (BoardService)Class.forName("arts_p."+serviceStr).newInstance();
 			service.execute(request,response);
 		} catch (Exception e) {
 			e.printStackTrace();

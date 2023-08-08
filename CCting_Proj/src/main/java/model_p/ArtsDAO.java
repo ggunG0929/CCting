@@ -34,7 +34,7 @@ public class ArtsDAO {
 	public ArrayList<ArtsDTO> list(PageData pd) {
 		// 내림차순으로
 		// limit 추가
-		sql = "select * from arts order by gid desc, seq limit ?, ?";
+		sql = "select * from arts order by edit_date desc limit ?, ?";
 		// 배열리스트 생성
 		ArrayList<ArtsDTO> res = new ArrayList<>();
 		try {
@@ -51,6 +51,7 @@ public class ArtsDAO {
 				ArtsDTO dto = new ArtsDTO();
 				// 게시글의 필드들을 db값을 가져와 세팅
 				dto.setId(rs.getInt("id"));
+				dto.setPw(rs.getString("pw"));
 				dto.setAge(rs.getInt("age"));
 				dto.setHeight(rs.getInt("height"));
 				dto.setWeight(rs.getInt("weight"));
@@ -122,6 +123,7 @@ public class ArtsDAO {
 				dto.setAge(rs.getInt("age"));
 				dto.setHeight(rs.getInt("height"));
 				dto.setWeight(rs.getInt("weight"));
+				dto.setPw(rs.getString("pw"));
 				dto.setName(rs.getString("name"));
 				dto.setAgency(rs.getString("agency"));
 				dto.setArts(rs.getString("arts"));
@@ -162,8 +164,8 @@ public class ArtsDAO {
 			// 일단 종료
 			ptmt.close();
 
-			sql = "insert into arts (id, age, height, weight, name, agency, arts, content, awards, photo1, photo2, bfile1, bfile2, edit_date) "
-					+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate())";
+			sql = "insert into arts (id, age, height, weight, name, agency, arts, content, awards, photo1, photo2, bfile1, bfile2, pw, edit_date) "
+					+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate())";
 			
 			// sql문을 준비(나중에 쿼리실행할 때 사용할 예정)
 			ptmt = con.prepareStatement(sql);
@@ -181,6 +183,7 @@ public class ArtsDAO {
 			ptmt.setString(11, dto.getPhoto2());
 			ptmt.setString(12, dto.getBfile1());
 			ptmt.setString(13, dto.getBfile2());
+			ptmt.setString(14, dto.getPw());
 			// db에서 쿼리실행하고 결과로 영향받은 행의 수를 반환
 			ptmt.executeUpdate();
 		} catch (SQLException e) {
@@ -192,7 +195,7 @@ public class ArtsDAO {
 	
 	// 글 삭제하기(게시글 모델)
 	public int delete(ArtsDTO dto) {
-		sql = "delete from arts where id = ?";
+		sql = "delete from arts where id = ? and pw = ?";
 		// 결과값을 0으로 선언
 		int res = 0;
 		try {
@@ -200,6 +203,7 @@ public class ArtsDAO {
 			ptmt = con.prepareStatement(sql);
 			// 물음표부분 세팅
 			ptmt.setInt(1, dto.getId());
+			ptmt.setString(2, dto.getPw());
 			// db에서 쿼리실행하고 결과로 영향받은 행의 수를 반환
 			res = ptmt.executeUpdate();
 		} catch (SQLException e) {
@@ -214,12 +218,13 @@ public class ArtsDAO {
 	// 글 수정시 파일삭제(게시글 모델)
 	public void fileDelete(ArtsDTO dto){
 		// 아이디와 비번으로 검색해서 upfile을 null로 바꿈
-		sql = "update arts set upfile = null where id = ?";
+		sql = "update arts set upfile = null where id = ? and pw = ?";
 		try {
 			// sql문을 준비(나중에 쿼리실행할 때 사용할 예정)
 			ptmt = con.prepareStatement(sql);
 			// 물음표부분 세팅 
 			ptmt.setInt(1, dto.getId());
+			ptmt.setString(2, dto.getPw());
 			// db에서 쿼리실행하고 결과로 영향받은 행의 수를 반환
 			ptmt.executeUpdate();
 		} catch (SQLException e) {
@@ -229,11 +234,45 @@ public class ArtsDAO {
 		}
 		
 	}
+	
+	// 글 삭제시 비번체크(게시글 모델)
+	public ArtsDTO idPwChk(ArtsDTO dto) {
+		// 게시글아이디와 비번으로 게시글을 검색
+		sql = "select * from arts where id = ? and pw = ?";
+		// 게시글 모델 null로(리턴하기 위해 if문 밖에서 생성)
+		ArtsDTO res = null;
+		try {
+			// sql문을 준비(나중에 쿼리실행할 때 사용할 예정)
+			ptmt = con.prepareStatement(sql);
+			// 물음표부분 세팅
+			ptmt.setInt(1, dto.getId());
+			ptmt.setString(2, dto.getPw());
+			// db에서 쿼리실행하고 결과로 result set 객체를 반환받음
+			rs = ptmt.executeQuery();
+			// ResultSet에 레코드가 있다면
+			if(rs.next()) {
+				// 게시글 모델 생성
+				res = new ArtsDTO();
+				// 게시글의 필드들을 db값을 가져와 세팅
+				res.setId(rs.getInt("id"));
+				res.setPhoto1(rs.getString("photo1"));
+				res.setPhoto2(rs.getString("photo2"));
+				res.setBfile1(rs.getString("bfile1"));
+				res.setBfile2(rs.getString("bfile2"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		// id와 pw로 검색된 db값으로 id와 파일정보가 세팅된 게시글 반환
+		return res;
+	}
 
 	// 글 수정하기(게시글 모델)
 	public int modify(ArtsDTO dto) {
 		int res = 0;
-		sql = "update arts set name= ?, age = ?, height = ?, weight = ?, agency = ?, arts = ?, content = ?, awards = ?, photo1 = ?, photo2 = ?, bfile1 = ?, bfile2 = ?, edit_date = sysdate() where id = ?";
+		sql = "update arts set name= ?, age = ?, height = ?, weight = ?, agency = ?, arts = ?, content = ?, awards = ?, photo1 = ?, photo2 = ?, bfile1 = ?, bfile2 = ?, edit_date = sysdate() where id = ? and pw = ?";
 		try {
 			// sql문을 준비(나중에 쿼리실행할 때 사용할 예정)
 			ptmt = con.prepareStatement(sql);
@@ -251,6 +290,7 @@ public class ArtsDAO {
 			ptmt.setString(11, dto.getBfile1());
 			ptmt.setString(12, dto.getBfile2());
 			ptmt.setInt(13, dto.getId());
+			ptmt.setString(14, dto.getPw());
 			// db에서 쿼리실행하고 결과로 영향받은 행의 수를 반환
 			res = ptmt.executeUpdate();
 		} catch (SQLException e) {
