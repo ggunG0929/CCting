@@ -40,7 +40,10 @@ public class ArtsDTO {
 	}
 	
 	public String getArtsBr() {
-		return arts.replaceAll("\n", "<br>");
+		if(arts!=null) {			
+			return arts.replaceAll("\n", "<br>");
+		}
+		return arts;
 	}
 
 	public void setArts(String arts) {
@@ -52,7 +55,10 @@ public class ArtsDTO {
 	}
 	
 	public String getContentBr() {
-		return content.replaceAll("\n", "<br>");
+		if(content!=null) {			
+			return content.replaceAll("\n", "<br>");
+		}
+		return content;
 	}
 
 	public void setContent(String content) {
@@ -64,7 +70,10 @@ public class ArtsDTO {
 	}
 
 	public String getAwardsBr() {
-		return awards.replaceAll("\n", "<br>");
+		if(awards!=null) {			
+			return awards.replaceAll("\n", "<br>");
+		}
+		return awards;
 	}
 
 	public void setAwards(String awards) {

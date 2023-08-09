@@ -3,13 +3,11 @@
 <%@page import="model_p.ArtsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<table border="">
+<table border="" width="100%">
 	<tr align="center">
-		<td width="50px">번호</td>
-		<td width="500px">제목</td>
-		<td width="100px">작성자</td>
-		<td width="200px">작성일</td>
-		<td width="50px">조회수</td>
+		<td>번호</td>
+		<td>작성자</td>
+		<td>작성일</td>
 	</tr>
 	<%
 	PageData pd = (PageData)request.getAttribute("pd");
@@ -27,7 +25,7 @@
 	</tr>
 	<% } %>
 	<tr>
-		<td colspan="5" align="center">
+		<td colspan="3" align="center">
 		<!-- 현재 페이지 범위의 시작번호가 1이 아니면 이전글자가 나오게 함 -->
 		<% if(pd.pageStart>1) { %>
 			<a href="?page=<%=pd.pageStart-1 %>">[이전]</a>

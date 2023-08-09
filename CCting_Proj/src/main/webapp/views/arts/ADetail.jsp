@@ -34,11 +34,11 @@
 	</tr>
 	<tr>
 		<td>출연작품</td>
-		<td><%=dto.getArts() %></td>
+		<td><%=dto.getArtsBr() %></td>
 	</tr>
 	<tr>
 		<td>수상내역</td>
-		<td><%=dto.getAwards() %></td>
+		<td><%=dto.getAwardsBr() %></td>
 	</tr>
 	<tr>
 		<td>내용</td>
