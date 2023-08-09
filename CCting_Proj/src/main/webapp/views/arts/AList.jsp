@@ -19,7 +19,7 @@
 	<tr align="center">
 		<td><%=i %></td>
 		<td align="left">
-			<a href="ADetail?id=<%=dto.getId() %>&page=<%=pd.page %>"><%=dto.getName() %></a>
+			<a href="ADetail?id=<%=dto.getId() %>&page=<%=pd.page %>"><img src="\CCting_Proj\up\<%=dto.getPhoto1()%>" alt="프로필"></a>
 		</td>
 		<td><%=dto.getEdit_dateStr() %></td>
 	</tr>

@@ -20,9 +20,9 @@ public class AModifyReg implements BoardService {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// 실제 path를 부여
 		// 학원
-//		String path = "C:\\Users\\Administrator\\git\\jspWorks\\mvcProj\\src\\main\\webapp\\up";
+		String path = "C:\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
 		// 놋북
-		String path = "C:\\coding0\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
+//		String path = "C:\\coding0\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
 		
 		PageData pd = (PageData)request.getAttribute("pd");
 		
@@ -64,7 +64,7 @@ public class AModifyReg implements BoardService {
 			if(new ArtsDAO().modify(dto)>0) {	// id, pw가 일치한다면 1을 return
 				// id, pw 검사 성공값 설정
 				msg = "수정되었습니다.";
-				goUrl = "ADetail?id="+dto.getId()+"&page="+pd.page;
+				goUrl = "ADetail?id="+dto.getId();
 			}else{	// 이미 인스턴스를 만들면서 이미지가 업로드 되기 때문에 id, pw가 불일치하면 지워줘야 함
 //				if(!dto.getUpfile().equals("")) {
 				if(mr.getFilesystemName("photo1")!=null) {	// 폼에 파일이 저장되어있었다면

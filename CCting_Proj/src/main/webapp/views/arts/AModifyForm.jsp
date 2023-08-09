@@ -29,15 +29,15 @@
 		</tr>
 		<tr>
 			<td>나이</td>
-			<td><input type="number" name="age" value="<%=dto.getAge() %>"></td>
+			<td>만 <input type="number" name="age" value="<%=dto.getAge() %>">세</td>
 		</tr>
 		<tr>
 			<td>키</td>
-			<td><input type="number" name="height" value="<%=dto.getHeight() %>"></td>
+			<td><input type="number" name="height" value="<%=dto.getHeight() %>">cm</td>
 		</tr>
 		<tr>
 			<td>체중</td>
-			<td><input type="number" name="weight" value="<%=dto.getWeight() %>"></td>
+			<td><input type="number" name="weight" value="<%=dto.getWeight() %>">kg</td>
 		</tr>
 		<tr>
 			<td>소속사</td>
@@ -45,7 +45,7 @@
 		</tr>
 		<tr>
 			<td>출연작품</td>
-			<td><input type="text" name="arts" value="<%=dto.getArts() %>"></td>
+			<td><textarea name="arts" cols="30" rows="10"><%=dto.getArts() %>></textarea></td>
 		</tr>
 		<tr>
 			<td>내용</td>
@@ -54,7 +54,7 @@
 		</tr>
 		<tr>
 			<td>수상내역</td>
-			<td><input type="text" name="awards" value="<%=dto.getAwards() %>"></td>
+			<td><textarea name="awards" cols="30" rows="10"><%=dto.getAwards() %></textarea></td>
 		</tr>
 		<tr>
 			<td>사진1-프로필</td>
@@ -62,7 +62,7 @@
 			<!-- 작성시 파일을 첨부하지 않았다면 -->
 			<% if(dto.getPhoto1().equals("")) { %>
 				<!-- 새로 파일첨부 가능 -->
-				<input type="file" name="upfile">
+				<input type="file" name="photo1" value="<%=dto.getPhoto1() %>">
 			<!-- 작성시 파일을 첨부했다면 -->
 			<% }else{ %>
 				<!-- 파일삭제 가능 -->
@@ -72,15 +72,35 @@
 		</tr>
 		<tr>
 			<td>사진2-전신사진</td>
-			<td><input type="file" name="photo2" value="<%=dto.getPhoto2() %>"></td>
+			<td>
+				<!-- 작성시 파일을 첨부하지 않았다면 -->
+				<% if(dto.getPhoto2().equals("")) { %>
+					<!-- 새로 파일첨부 가능 -->
+					<input type="file" name="photo2" value="<%=dto.getPhoto2() %>">
+				<!-- 작성시 파일을 첨부했다면 -->
+				<% }else{ %>
+					<!-- 파일삭제 가능 -->
+					<%=dto.getPhoto2() %><input type="button" value="파일삭제" onclick="fileDel()"/>
+				<% } %>
+			</td>
+		</tr>
+		<tr>
+			<td>사진3-작품사진</td>
+			<td>
+				<!-- 작성시 파일을 첨부하지 않았다면 -->
+				<% if(dto.getBfile2().equals("")) { %>
+					<!-- 새로 파일첨부 가능 -->
+					<input type="file" name="bfile2" value="<%=dto.getBfile2() %>">
+				<!-- 작성시 파일을 첨부했다면 -->
+				<% }else{ %>
+					<!-- 파일삭제 가능 -->
+					<%=dto.getBfile2() %><input type="button" value="파일삭제" onclick="fileDel()"/>
+				<% } %>
+			</td>
 		</tr>
 		<tr>
 			<td>파일1-목소리</td>
 			<td><input type="file" name="bfile1" value="<%=dto.getBfile1() %>"></td>
-		</tr>
-		<tr>
-			<td>파일2-작품사진</td>
-			<td><input type="file" name="bfile2" value="<%=dto.getBfile2() %>"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">

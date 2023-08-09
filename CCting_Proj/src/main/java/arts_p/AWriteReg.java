@@ -17,9 +17,9 @@ public class AWriteReg implements BoardService {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// 실제 path를 부여
 		// 학원
-//		String path = "C:\\Users\\Administrator\\git\\jspWorks\\mvcProj\\src\\main\\webapp\\up";
+		String path = "C:\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
 		// 놋북
-		String path = "C:\\coding0\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
+//		String path = "C:\\coding0\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
 		
 		try {
 			// MultipartRequest: cos.jar를 통해 쓸 수 있는 클래스

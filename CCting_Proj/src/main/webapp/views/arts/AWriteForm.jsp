@@ -16,15 +16,15 @@
 		</tr>
 		<tr>
 			<td>나이</td>
-			<td><input type="text" name="age"></td>
+			<td>만 <input type="text" name="age">세</td>
 		</tr>
 		<tr>
 			<td>키</td>
-			<td><input type="text" name="height"></td>
+			<td><input type="text" name="height">cm</td>
 		</tr>
 		<tr>
 			<td>체중</td>
-			<td><input type="text" name="weight"></td>
+			<td><input type="text" name="weight">kg</td>
 		</tr>
 		<tr>
 			<td>소속사</td>
@@ -32,15 +32,15 @@
 		</tr>
 		<tr>
 			<td>출연작품</td>
-			<td><input type="text" name="arts"></td>
+			<td><textarea name="arts" cols="30" rows="10"></textarea></td>
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><textarea name="content" id="" cols="30" rows="10"></textarea></td>
+			<td><textarea name="content" cols="30" rows="10"></textarea></td>
 		</tr>
 		<tr>
 			<td>수상내역</td>
-			<td><input type="text" name="awards"></td>
+			<td><textarea name="awards" cols="30" rows="10"></textarea></td>
 		</tr>
 		<tr>
 			<td>사진1-프로필</td>
@@ -51,12 +51,12 @@
 			<td><input type="file" name="photo2"></td>
 		</tr>
 		<tr>
-			<td>파일1-목소리</td>
-			<td><input type="file" name="bfile1"></td>
+			<td>사진3-작품사진</td>
+			<td><input type="file" name="bfile2"></td>
 		</tr>
 		<tr>
-			<td>파일2-작품사진</td>
-			<td><input type="file" name="bfile2"></td>
+			<td>파일1-목소리</td>
+			<td><input type="file" name="bfile1"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">

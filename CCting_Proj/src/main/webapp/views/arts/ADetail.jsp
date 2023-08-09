@@ -18,15 +18,15 @@
 	</tr>
 	<tr>
 		<td>나이</td>
-		<td><%=dto.getAge() %></td>
+		<td>만 <%=dto.getAge() %>세</td>
 	</tr>
 	<tr>
 		<td>키</td>
-		<td><%=dto.getHeight() %></td>
+		<td><%=dto.getHeight() %>cm</td>
 	</tr>
 	<tr>
 		<td>체중</td>
-		<td><%=dto.getWeight() %></td>
+		<td><%=dto.getWeight() %>kg</td>
 	</tr>
 	<tr>
 		<td>소속사</td>
@@ -46,19 +46,19 @@
 	</tr>
 	<tr>
 		<td>사진1-프로필</td>
-		<td><img src="/CCting_Proj/up/<%=dto.getPhoto1()%>" alt=""></td>
+		<td><img src="\CCting_Proj\up\<%=dto.getPhoto1()%>" alt="프로필"></td>
 	</tr>
 	<tr>
 		<td>사진2-전신사진</td>
-		<td><img src="/CCting_Proj/up/<%=dto.getPhoto2()%>" alt=""></td>
+		<td><img src="/CCting_Proj/up/<%=dto.getPhoto2()%>" alt="전신"></td>
+	</tr>
+	<tr>
+		<td>사진3-출연작</td>
+		<td><img src="/CCting_Proj/up/<%=dto.getBfile2()%>" alt="출연작"></td>
 	</tr>
 	<tr>
 		<td>파일1-목소리</td>
 		<td><a href="/CCting_Proj/file/FileDown?fName=<%=dto.getBfile1() %>"><%=dto.getBfile1() %></a></td>
-	</tr>
-	<tr>
-		<td>파일2-출연작품</td>
-		<td><a href="/CCting_Proj/file/FileDown?fName=<%=dto.getBfile2() %>"><%=dto.getBfile2() %></a></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="right">

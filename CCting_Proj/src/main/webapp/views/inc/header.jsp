@@ -9,6 +9,6 @@
 		<td><a href="">회사소개</a></td>
 		<td><a href="">제품</a></td>
 		<td><a href="">갤러리</a></td>
-		<td><a href="/arts/AList">게시판</a></td>
+		<td><a href="">게시판</a></td>
 	</tr>
 </table>

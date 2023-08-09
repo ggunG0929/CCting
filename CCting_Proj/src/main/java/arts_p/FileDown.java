@@ -24,9 +24,9 @@ public class FileDown implements BoardService {
 //		System.out.println(path);
 		// 실제 path를 부여
 		// 학원
-//		String path = "C:\\Users\\Administrator\\git\\jspWorks\\mvcProj\\src\\main\\webapp\\up";
+		String path = "C:\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
 		// 놋북
-		String path = "C:\\coding0\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
+//		String path = "C:\\coding0\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
 
 		try {
 			// FileInputStream: 파일 다운로드를 처리하기 위해 웹 서버의 파일 시스템에서 파일을 읽어올 때 사용

@@ -18,9 +18,9 @@ public class AFileDelete implements BoardService{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		// 학원
-//		String path = "C:\\Users\\Administrator\\git\\jspWorks\\mvcProj\\src\\main\\webapp\\up";
+		String path = "C:\\CCting\\CCting_Proj\\src\\main\\webapp\\up\\";
 		// 놋북
-		String path = "C:\\coding0\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
+//		String path = "C:\\coding0\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
 		
 		PageData pd = (PageData)request.getAttribute("pd");
 		

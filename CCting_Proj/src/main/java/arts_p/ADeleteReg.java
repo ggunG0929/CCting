@@ -35,9 +35,9 @@ public class ADeleteReg implements BoardService {
 		ArtsDTO delDto = new ArtsDAO().idPwChk(dto);
 		// 실제 path를 부여
 		// 학원
-//		String path = "C:\\Users\\Administrator\\git\\jspWorks\\mvcProj\\src\\main\\webapp\\up";
+		String path = "C:\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
 		// 놋북
-		String path = "C:\\coding0\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
+//		String path = "C:\\coding0\\CCting\\CCting_Proj\\src\\main\\webapp\\up";
 		if(delDto!=null) {	// id, pw가 일치한다면(검색한 결과가 있다면)
 			if(!delDto.getPhoto1().equals("")) {	// 파일이 존재한다면
 				// path에서 파일을 삭제
