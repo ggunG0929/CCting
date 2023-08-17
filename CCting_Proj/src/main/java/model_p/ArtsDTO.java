@@ -9,6 +9,7 @@ public class ArtsDTO {
 	int id, age, height, weight;
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd(E) hh:mm");
+	SimpleDateFormat sdfage = new SimpleDateFormat("yyyyMMdd");
 
 
 	public String getPw() {
@@ -163,6 +164,17 @@ public class ArtsDTO {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	public int getAage(int age) {
+		int aage;
+		Date date = new Date();
+		int today = Integer.parseInt(sdfage.format(date));
+		if(today%10000 >= age%10000) {
+			aage = (today/10000)-(age/10000) + 1;
+		}else {
+			aage = (today/10000)-(age/10000);
+		}
+		return aage;
+	}
 
 	public int getHeight() {
 		return height;
@@ -178,6 +190,19 @@ public class ArtsDTO {
 
 	public void setWeight(int weight) {
 		this.weight = weight;
+	}
+	
+	public String getBmi(int height, int weight) {
+		String Bmi = "";
+		int bmi = weight / ((height * height)/10000);
+		if(bmi>25) {
+			Bmi = "체질량지수 높음";
+		}else if(bmi<18) {
+			Bmi = "체질량지수 보통";
+		}else {
+			Bmi = "체질량지수 낮음";
+		}
+		return Bmi;
 	}
 
 	@Override

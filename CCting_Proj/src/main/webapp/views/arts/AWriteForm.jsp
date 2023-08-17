@@ -15,15 +15,15 @@
 			<td><input type="password" name="pw"></td>
 		</tr>
 		<tr>
-			<td>나이</td>
-			<td>만 <input type="text" name="age">세</td>
+			<td>생년월일</td>
+			<td><input type="text" name="age" placeholder="yyyymmdd"></td>
 		</tr>
 		<tr>
 			<td>키</td>
 			<td><input type="text" name="height">cm</td>
 		</tr>
 		<tr>
-			<td>체중</td>
+			<td>체중(체질량 지수 환산을 위해)</td>
 			<td><input type="text" name="weight">kg</td>
 		</tr>
 		<tr>

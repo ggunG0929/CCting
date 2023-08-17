@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
-	// 컨트롤러에서 보내온 정보 받기
-	// /board/뒤에 붙는 클라이언트의 요청.jsp 페이지
-	String mainUrl = request.getAttribute("mainPage")+".jsp";
+    String mainUrl = request.getAttribute("mainPage") + ".jsp";
 %>
 <!DOCTYPE html>
 <html>

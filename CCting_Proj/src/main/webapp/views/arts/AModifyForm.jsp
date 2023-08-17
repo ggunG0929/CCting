@@ -28,8 +28,8 @@
 			<td><input type="password" name="pw"></td>
 		</tr>
 		<tr>
-			<td>나이</td>
-			<td>만 <input type="number" name="age" value="<%=dto.getAge() %>">세</td>
+			<td>생년월일</td>
+			<td><input type="text" name="age" value="<%=dto.getAge() %>" placeholder="yyyymmdd"></td>
 		</tr>
 		<tr>
 			<td>키</td>

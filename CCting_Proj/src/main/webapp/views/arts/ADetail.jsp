@@ -18,15 +18,15 @@
 	</tr>
 	<tr>
 		<td>나이</td>
-		<td>만 <%=dto.getAge() %>세</td>
+		<td>만 <%=dto.getAage(dto.getAge()) %>세</td>
 	</tr>
 	<tr>
 		<td>키</td>
 		<td><%=dto.getHeight() %>cm</td>
 	</tr>
 	<tr>
-		<td>체중</td>
-		<td><%=dto.getWeight() %>kg</td>
+		<td>체질량지수</td>
+		<td><%=dto.getBmi(dto.getHeight(), dto.getWeight()) %></td>
 	</tr>
 	<tr>
 		<td>소속사</td>
