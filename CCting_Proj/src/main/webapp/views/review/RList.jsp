@@ -1,5 +1,5 @@
-<%@page import="r_model.PageData"%>
-<%@page import="r_model.RBoardDTO"%>
+<%@page import="model_r.PageData"%>
+<%@page import="model_r.RBoardDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

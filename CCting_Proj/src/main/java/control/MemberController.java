@@ -20,7 +20,6 @@ public class MemberController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//response.getWriter().append("Served at: ").append(request.getContextPath()); //Served at: /CCting_Proj 출력 확인
 		
-		
 		String serviceStr = request.getRequestURI().substring(
 				(request.getContextPath()+"/member/").length()
 				);
@@ -30,8 +29,8 @@ public class MemberController extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			request.setAttribute("mainPage", "member/"+serviceStr);
 			
-			MemberService service = 
-					(MemberService)Class.forName("ser_p."+serviceStr).newInstance();
+			BoardService service = 
+					(BoardService)Class.forName("ser_p."+serviceStr).newInstance();
 			service.execute(request, response);
 			
 			RequestDispatcher dispatcher = 
