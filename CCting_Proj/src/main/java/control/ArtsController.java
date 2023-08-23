@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model_p.PageData;
+import model_a.PageData;
 
 @WebServlet("/arts/*")
 public class ArtsController extends HttpServlet {
@@ -30,7 +30,7 @@ public class ArtsController extends HttpServlet {
 			// 페이지처리를 하면서 PageData 정보를 넘겨줌
 			request.setAttribute("pd", new PageData(request));
 			
-			BoardService service = (BoardService)Class.forName("arts_p."+serviceStr).newInstance();	// try catch
+			BoardService service = (BoardService)Class.forName("ser_a."+serviceStr).newInstance();	// try catch
 			service.execute(request, response);
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/views/template.jsp");

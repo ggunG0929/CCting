@@ -1,5 +1,5 @@
 
-<%@page import="model.PageData"%>
+<%@page import="model_d.PageData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -15,11 +15,11 @@
 		
 			<td width="600px">
 			<select name="dtype">
-			<option valus="공포">공포</option>
-			<option valus="멜로">멜로</option>
-			<option valus="판타지">판타지</option>
-			<option valus="드라마">드라마</option>
-			<option valus="기타">기타</option>
+			<option values="공포">공포</option>
+			<option values="멜로">멜로</option>
+			<option values="판타지">판타지</option>
+			<option values="드라마">드라마</option>
+			<option values="기타">기타</option>
 			
 			
 			
@@ -42,11 +42,11 @@
 		</tr>
 		<tr>
 			<td>개봉날짜</td>
-			<td><input type="text" name="openDate" /></td>
+			<td><input type="date" name="openDate" /></td>
 		</tr>
 		<tr>
 			<td>마감날짜</td>
-			<td><input type="text" name="closeDate" /></td>
+			<td><input type="date" name="closeDate" /></td>
 		</tr>
 			<tr>
 			<td>파일</td>
